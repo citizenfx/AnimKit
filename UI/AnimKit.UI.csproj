@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <UseWindowsForms>True</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\AnimKit.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\about.png" />
+    <Resource Include="Assets\backdrop.png" />
+    <Resource Include="Assets\logo.png" />
+    <Resource Include="Assets\favicon.png" />
+    <Resource Include="Assets\create.png" />
+    <Resource Include="Assets\open.png" />
+    <Resource Include="Assets\plugin.png" />
+    <Resource Include="Assets\contribute.png" />
+    <Resource Include="Assets\edit.png" />
+    <Resource Include="Assets\save.png" />
+    <Resource Include="Assets\export.png" />
+    <Resource Include="Assets\dictionary.png" />
+    <Resource Include="Assets\animations.png" />
+    <Resource Include="Assets\clips.png" />
+    <Resource Include="Assets\remove.png" />
+    <Resource Include="Assets\trash.png" />
+    <Resource Include="Assets\mascot.png" />
+  </ItemGroup>
+
+</Project>

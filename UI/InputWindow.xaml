@@ -1,0 +1,65 @@
+﻿<Window x:Class="AnimKit.UI.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimKit.UI"
+        mc:Ignorable="d"
+        Title="AnimKit by Cfx.re / Input"
+        Height="220"
+        MinHeight="220"
+        Width="600"
+        MinWidth="600"
+        Background="#161923"
+        WindowStartupLocation="CenterScreen"
+        Icon="Assets/favicon.png">
+    <Grid>
+        <Rectangle Panel.ZIndex="-1">
+            <Rectangle.Fill>
+                <RadialGradientBrush>
+                    <GradientStop Color="#00000000" Offset="0.63"/>
+                    <GradientStop Color="#26000000" Offset="1"/>
+                </RadialGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Grid Margin="10" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="68"/>
+                <RowDefinition Height="48"/>
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+
+            <local:InputBox
+                x:Name="InputBoxItem"
+                VerticalAlignment="Center"
+                Height="62"
+                KeyDown="InputBoxItem_KeyDown" />
+
+            <Label
+                x:Name="RulesLabel"
+                HorizontalContentAlignment="Left"
+                FontSize="14"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                Opacity="0.6"
+                VerticalAlignment="Center"
+                Height="36"
+                Grid.Row="1" />
+
+            <local:TextButton
+                x:Name="ApplyButton"
+                FontSize="18"
+                Title="OK"
+                VerticalAlignment="Top"
+                Grid.Row="2"
+                Height="42"
+                Click="ApplyButton_Click"
+                HorizontalAlignment="Right"
+                Width="120"
+                Margin="1" />
+        </Grid>
+    </Grid>
+</Window>

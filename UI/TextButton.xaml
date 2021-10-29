@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="AnimKit.UI.TextButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:AnimKit.UI"
+             mc:Ignorable="d"
+             d:DesignWidth="140"
+             d:DesignHeight="45"
+             d:DataContext="{Binding Mode=Default, RelativeSource={RelativeSource Self}}">
+    <Grid x:Name="ButtonGrid">
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter" SourceName="ButtonRegion">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonFill"
+                            Storyboard.TargetProperty="Color"
+                            From="#664B4C4E" To="#66994F70" Duration="0:0:0.1" />
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonStroke"
+                            Storyboard.TargetProperty="Color"
+                            From="#00F40552" To="#FFF40552" Duration="0:0:0.1" />
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonTitle"
+                            Storyboard.TargetProperty="Color"
+                            From="#E593948E" To="#FFF40552" Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave" SourceName="ButtonRegion">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonFill"
+                            Storyboard.TargetProperty="Color"
+                            From="#66994F70" To="#664B4C4E" Duration="0:0:0.1" />
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonStroke"
+                            Storyboard.TargetProperty="Color"
+                            From="#FFF40552" To="#00F40552" Duration="0:0:0.1" />
+                        <ColorAnimation
+                           Storyboard.TargetName="ButtonTitle"
+                           Storyboard.TargetProperty="Color"
+                           From="#FFF40552" To="#E593948E" Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        <Rectangle>
+            <Rectangle.Fill>
+                <SolidColorBrush x:Name="ButtonFill" Color="#664B4C4E" />
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Rectangle StrokeThickness="1">
+            <Rectangle.Stroke>
+                <SolidColorBrush x:Name="ButtonStroke" Color="#00F40552" />
+            </Rectangle.Stroke>
+        </Rectangle>
+
+        <Label
+            VerticalAlignment="Stretch"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="{Binding FontSize}"
+            FontWeight="Normal"
+            FontStyle="Normal"
+            FontStretch="Normal">
+
+            <Label.Foreground>
+                <SolidColorBrush x:Name="ButtonTitle" Color="#E593948E" />
+            </Label.Foreground>
+
+            <Label.Style>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="Content" Value="{Binding Title}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Title.Length, FallbackValue=0, TargetNullValue=0}" Value="0">
+                            <Setter Property="Content" Value="Title"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Label.Style>
+        </Label>
+
+        <Rectangle x:Name="ButtonRegion" Fill="#00000000" Cursor="Hand" MouseDown="ButtonRegion_MouseDown" />
+
+        <Rectangle x:Name="ButtonBlocker" Panel.ZIndex="-1" Fill="#00000000" Grid.RowSpan="2" />
+    </Grid>
+</UserControl>

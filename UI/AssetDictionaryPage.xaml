@@ -1,0 +1,211 @@
+﻿<Page x:Class="AnimKit.UI.AssetDictionaryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AnimKit.UI"
+      mc:Ignorable="d"
+      d:DesignHeight="320"
+      d:DesignWidth="760"
+      Title="AssetDictionaryPage"
+      Loaded="Page_Loaded"
+      Unloaded="Page_Unloaded">
+    <Grid MaxHeight="320" MaxWidth="1280">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="16*"/>
+            <ColumnDefinition Width="11*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="62"/>
+                <RowDefinition Height="40*"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                Content="DICTIONARY NAME"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                Height="32"
+                Margin="8,0,0,0"
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Left"
+                VerticalAlignment="Center" />
+
+            <Grid VerticalAlignment="Center" Height="60" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400*"/>
+                    <ColumnDefinition Width="64*"/>
+                </Grid.ColumnDefinitions>
+
+                <local:InputBox
+                    x:Name="DictionaryNameInput"
+                    Margin="28,6,0,6"
+                    Height="46"
+                    Value="your@awesome@anim@dict"
+                    PropertyChanged="DictionaryNameInput_PropertyChanged" />
+
+                <local:TextButton
+                    x:Name="DictionaryNameSave"
+                    Visibility="Hidden"
+                    Grid.Column="1"
+                    Title="SAVE"
+                    Margin="3,7,13,7"
+                    Click="DictionaryNameSave_Click" />
+
+                <Grid x:Name="DictionaryNameHelp" Grid.Column="1" Visibility="Visible">
+                    <Rectangle
+                        Opacity="1"
+                        Height="42"
+                        VerticalAlignment="Center"
+                        Fill="#FF26282F"
+                        Panel.ZIndex="-1"
+                        Margin="4,0,0,0"
+                        Width="42"
+                        HorizontalAlignment="Left" />
+
+                    <Label
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
+                        Content=".#CD"
+                        FontSize="16"
+                        FontWeight="Normal"
+                        FontStyle="Normal"
+                        FontStretch="Normal"
+                        Foreground="#E593948E"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Margin="3,0,0,0"
+                        Width="44"
+                        Height="44" />
+                </Grid>
+            </Grid>
+
+            <Label
+                HorizontalContentAlignment="Left"
+                Content="* Only A-z 0-9 ^ @ - + __ chars are allowed."
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                Margin="22,0,0,0"
+                Opacity="0.4"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Grid.Row="2" />
+        </Grid>
+
+        <Grid Grid.Row="1" VerticalAlignment="Top">
+            <Label
+                HorizontalContentAlignment="Left"
+                Content="MISC"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                Margin="8,6,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="32"
+                Width="116"
+                Grid.Row="1" />
+
+            <StackPanel Margin="20,40,170,0">
+                <local:TextButton
+                    x:Name="AssetOpenLocation"
+                    FontSize="16"
+                    Title="OPEN ASSET FOLDER"
+                    Margin="8,10,8,0"
+                    Height="36"
+                    Grid.Row="1"
+                    ToolTip="Open asset folder in explorer."
+                    Click="AssetOpenLocation_Click" />
+
+                <local:TextButton
+                    x:Name="AssetExportNames"
+                    FontSize="16"
+                    Title="EXPORT NAMES"
+                    Margin="8,10,8,10"
+                    Height="36"
+                    Grid.Row="1"
+                    ToolTip="Export names as .nametable file for other tools (such as CodeWalker)."
+                    Click="AssetExportNames_Click" />
+            </StackPanel>
+        </Grid>
+
+        <Grid HorizontalAlignment="Stretch" Grid.Column="1" VerticalAlignment="Top">
+                <Label
+                    HorizontalContentAlignment="Left"
+                    Content="IMPORT"
+                    FontSize="18"
+                    FontWeight="Normal"
+                    FontStyle="Normal"
+                    FontStretch="Normal"
+                    Foreground="#E593948E"
+                    Margin="8,6,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Height="32" />
+
+                <StackPanel Margin="20,40,20,0">
+                    <local:TextButton
+                        x:Name="AssetImportFromRawButton"
+                        FontSize="16"
+                        Title="IMPORT FROM .#CD"
+                        Margin="8,10,8,0"
+                        Click="AssetImportFromRawButton_Click"
+                        Height="36" />
+
+                    <local:TextButton
+                        x:Name="AssetImportFromOpenButton"
+                        FontSize="16"
+                        Title="IMPORT FROM .OAD"
+                        Margin="8,10,8,10"
+                        Click="AssetImportFromOpenButton_Click"
+                        Height="36" />
+                </StackPanel>
+            </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Top">
+            <Label
+                Content="EXPORT"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                Margin="8,6,0,0"
+                HorizontalContentAlignment="Left"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="32" />
+
+            <StackPanel Margin="20,40,20,0">
+                <local:TextButton
+                    x:Name="AssetExportToRawButton"
+                    Title="EXPORT TO .#CD"
+                    FontSize="16"
+                    Margin="8,10,8,0"
+                    Click="AssetExportToRawButton_Click"
+                    Height="36" />
+
+                <local:TextButton
+                    x:Name="AssetExportToOpenButton"
+                    Title="EXPORT TO .OAD"
+                    FontSize="16"
+                    Margin="8,10,8,10"
+                    Click="AssetExportToOpenButton_Click"
+                    Height="36" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

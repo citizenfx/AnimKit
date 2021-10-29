@@ -1,0 +1,86 @@
+﻿<Page x:Class="AnimKit.UI.AssetHelpPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AnimKit.UI"
+      mc:Ignorable="d"
+      d:DesignHeight="320"
+      d:DesignWidth="760"
+      Title="AssetHelpPage">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle
+            Opacity="0.1"
+            Fill="#FF616161"
+            Width="3"
+            HorizontalAlignment="Center"
+            Grid.Column="0"
+            Margin="0,20,0,20"
+            Grid.ColumnSpan="2" />
+
+        <Rectangle
+            Opacity="0.1"
+            Fill="#FF616161"
+            Width="3"
+            HorizontalAlignment="Center"
+            Grid.Column="1"
+            Margin="0,20,0,20"
+            Grid.ColumnSpan="2" />
+
+        <TextBlock
+            x:Name="DictionaryTextBlock"
+            Text="In the DICTIONARY tab, you can set up default settings and configure all the animation dictionary-related stuff."
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="200"
+            Padding="0,100,0,100"
+            FontSize="18"
+            FontWeight="Normal"
+            FontStyle="Normal"
+            FontStretch="Normal"
+            Foreground="#E593948E"
+            MouseDown="DictionaryTextBlock_MouseDown"/>
+
+        <TextBlock
+            x:Name="AnimationsTextBlock"
+            Text="You can add and remove animation definitions in the ANIMATIONS tab, as well as import/export them."
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="200"
+            Padding="0,100,0,100"
+            FontSize="18"
+            FontWeight="Normal"
+            FontStyle="Normal"
+            FontStretch="Normal"
+            Foreground="#E593948E"
+            Grid.Column="1"
+            MouseDown="AnimationsTextBlock_MouseDown" />
+
+        <TextBlock
+            x:Name="ClipsTextBlock"
+            Text="CLIPS tab is used for creating clips for animations: meta-information required for in-game usage."
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Width="200"
+            Padding="0,100,0,100"
+            FontSize="18"
+            FontWeight="Normal"
+            FontStyle="Normal"
+            FontStretch="Normal"
+            Foreground="#E593948E"
+            Grid.Column="2"
+            MouseDown="ClipsTextBlock_MouseDown" />
+    </Grid>
+</Page>

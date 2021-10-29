@@ -1,0 +1,9 @@
+﻿<Application x:Class="AnimKit.UI.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AnimKit.UI"
+             Startup="App_Startup">
+    <Application.Resources>
+
+    </Application.Resources>
+</Application>

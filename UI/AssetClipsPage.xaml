@@ -1,0 +1,257 @@
+﻿<Page x:Class="AnimKit.UI.AssetClipsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:AnimKit.UI"
+      mc:Ignorable="d"
+      d:DesignHeight="320"
+      d:DesignWidth="760"
+      Title="AssetClipsPage"
+      Loaded="Page_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="530*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="58"/>
+            </Grid.RowDefinitions>
+
+            <Label
+                x:Name="AssetClipsTitle"
+                Content="CLIPS"
+                HorizontalContentAlignment="Left"
+                Height="32"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="8,0,0,0" />
+
+            <ListBox x:Name="AssetClipsList"
+                Background="#AA2B2D34"
+                BorderBrush="#FF161923"
+                Foreground="#FFFDFFF0"
+                FontSize="14"
+                d:ItemsSource="{d:SampleData}"
+                Margin="5"
+                SelectionChanged="AssetClipsList_SelectionChanged"
+                Grid.Row="1"/>
+
+            <Grid VerticalAlignment="Center" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <local:IconButton
+                    x:Name="ClipListAddButton"
+                    Blocked="False"
+                    Margin="6"
+                    ImageSource="Assets/create.png"
+                    Grid.Column="0"
+                    ToolTip="Add new clip."
+                    Click="ClipListAddButton_Click" />
+
+                <local:IconButton
+                    x:Name="ClipListRemoveButton"
+                    Blocked="True"
+                    Margin="6"
+                    ImageSource="Assets/remove.png"
+                    Grid.Column="1"
+                    ToolTip="Remove selected clip."
+                    Click="ClipListRemoveButton_Click" />
+
+                <local:IconButton
+                    x:Name="ClipListEditButton"
+                    Blocked="True"
+                    Margin="6"
+                    ImageSource="Assets/edit.png"
+                    Grid.Column="2"
+                    ToolTip="Rename selected clip."
+                    Click="ClipListEditButton_Click"/>
+
+                <local:IconButton
+                    x:Name="ClipListClearButton"
+                    Blocked="True"
+                    Margin="6"
+                    ImageSource="Assets/trash.png"
+                    Grid.Column="3"
+                    ToolTip="Remove clips."
+                    Click="ClipListClearButton_Click" />
+            </Grid>
+        </Grid>
+
+        <StackPanel
+            x:Name="AssetClipNotSelected"
+            Visibility="Hidden"
+            Grid.Column="1"
+            Orientation="Horizontal"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Label
+                Content="SELECT OR ADD CLIP"
+                HorizontalContentAlignment="Center"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                HorizontalAlignment="Center"
+                Width="426"
+                Height="32"
+                VerticalAlignment="Center" />
+        </StackPanel>
+
+        <Grid x:Name="AssetClipSelected" Visibility="Visible" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="58"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="142*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                x:Name="AssetClipAnimationsTitle"
+                Content="USED ANIMATIONS"
+                HorizontalContentAlignment="Left"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="0,0,0,0"
+                Height="32"
+                Grid.Column="1" />
+
+            <ListBox
+                x:Name="AssetClipAnimationsList"
+                Background="#AA2B2D34"
+                BorderBrush="#FF161923"
+                Foreground="#FFFDFFF0"
+                FontSize="14"
+                d:ItemsSource="{d:SampleData}"
+                Margin="5"
+                Grid.Column="1"
+                Grid.Row="1"
+                SelectionChanged="AssetClipAnimationsList_SelectionChanged" />
+
+            <Grid VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <local:IconButton
+                    x:Name="AssetClipAnimationsAddButton"
+                    ImageSource="Assets/create.png"
+                    Blocked="False"
+                    Margin="6"
+                    Grid.Column="0"
+                    ToolTip="Add animation to selected clip."
+                    Click="AssetClipAnimationsAddButton_Click"/>
+
+                <local:IconButton
+                    x:Name="AssetClipAnimationsRemoveButton"
+                    ImageSource="Assets/remove.png"
+                    Blocked="False"
+                    Margin="6"
+                    Grid.Column="1"
+                    ToolTip="Remove animation from selected clip."
+                    Click="AssetClipAnimationsRemoveButton_Click" />
+
+                <local:IconButton
+                    x:Name="AssetClipAnimationsJumpButton"
+                    ImageSource="Assets/animations.png"
+                    Blocked="False"
+                    Margin="6"
+                    Grid.Column="2"
+                    ToolTip="Jump to this animation on the animations page."
+                    Click="AssetClipAnimationsJumpButton_Click" />
+            </Grid>
+
+            <Label
+                HorizontalContentAlignment="Left"
+                Content="PARAMS"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                Foreground="#E593948E"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Height="32"
+                Margin="16,0,0,0"
+                Grid.Column="2" />
+
+            <StackPanel
+                x:Name="AssetClipDataNotSelected"
+                Visibility="Hidden"
+                Grid.Column="2"
+                Orientation="Vertical"
+                Grid.Row="1"
+                VerticalAlignment="Center" Height="34">
+                <Label
+                    Content="ADD ANIMATION"
+                    HorizontalContentAlignment="Center"
+                    FontSize="18"
+                    FontWeight="Normal"
+                    FontStyle="Normal"
+                    FontStretch="Normal"
+                    Foreground="#E593948E"
+                    VerticalAlignment="Center" />
+            </StackPanel>
+
+            <Grid
+                x:Name="AssetClipData"
+                Grid.Column="2"
+                Margin="8,6,0,0"
+                Grid.Row="1">
+                <StackPanel
+                    HorizontalAlignment="Left"
+                    Margin="18,0,0,0"
+                    VerticalAlignment="Top">
+                    <local:InputValue 
+                        x:Name="ClipAnimationStartFromValue" 
+                        Width="240" 
+                        Height="40" 
+                        Title="Starts from" 
+                        Units="sec" 
+                        ValueChanged="ClipAnimationStartFromValue_PropertyChanged" />
+
+                    <local:InputValue 
+                        x:Name="ClipAnimationEndsAtValue" 
+                        Width="240" 
+                        Height="40" 
+                        Title="Ends at" 
+                        Units="sec" 
+                        ValueChanged="ClipAnimationEndsAtValue_PropertyChanged" />
+
+                    <local:InputValue 
+                        x:Name="ClipAnimationRateValue" 
+                        Width="240" 
+                        Height="40" 
+                        Title="Rate" 
+                        Units="mult" 
+                        ValueChanged="ClipAnimationRateValue_PropertyChanged" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

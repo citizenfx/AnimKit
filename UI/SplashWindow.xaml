@@ -1,0 +1,64 @@
+﻿<Window x:Name="Window" x:Class="AnimKit.UI.SplashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimKit.UI"
+        mc:Ignorable="d"
+        Title="AnimKit by Cfx.re"
+        Height="525" Width="525"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="#161923"
+        WindowStartupLocation="CenterScreen"
+        Initialized="Window_Initialized"
+        Icon="Assets/favicon.png">
+    <Grid
+        ScrollViewer.VerticalScrollBarVisibility="Disabled"
+        Width="525"
+        Height="525"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Center">
+
+        <local:AnimatedBackdrop />
+
+        <Image Source="Assets/logo.png" Width="150" Margin="188,0,187,240" Height="150" VerticalAlignment="Bottom" />
+
+        <Label
+            Content="AnimKit by Cfx.re"
+            Margin="0,298,0,0"
+            FontSize="24"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Width="192"
+            Foreground="White" />
+
+        <StackPanel Margin="138,340,138,156" HorizontalAlignment="Center">
+            <StackPanel.Triggers>
+                <EventTrigger RoutedEvent="Loaded" SourceName="ProgressForeground">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation
+                                Storyboard.TargetName="ProgressForeground"
+                                Storyboard.TargetProperty="Margin"
+                                From="-170,-4,0,0" To="170,-4,0,0" Duration="0:0:1"
+                                RepeatBehavior="Forever" AutoReverse="True" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </StackPanel.Triggers>
+
+            <Rectangle Width="250" Height="4" Margin="0,12,0,0" Fill="#FBFFFFFF" Opacity="0.2" />
+            <Rectangle x:Name="ProgressForeground" Width="80" Height="4" Margin="0,-4,0,0" Fill="#FBFFFFFF" Opacity="0.6" />
+        </StackPanel>
+
+        <Label
+            x:Name="ProgressStatus"
+            Content="We're getting there."
+            FontSize="18"
+            Foreground="White"
+            Margin="0,369,0,0"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" />
+    </Grid>
+</Window>

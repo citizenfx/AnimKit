@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="AnimKit.UI.BarButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:AnimKit.UI"
+             mc:Ignorable="d"
+             d:DesignHeight="50"
+             d:DesignWidth="270"
+             d:DataContext="{Binding Mode=Default, RelativeSource={RelativeSource Self}}">
+    <Grid>
+        <Grid.Triggers>
+            <EventTrigger RoutedEvent="MouseEnter" SourceName="ButtonRegion">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="ButtonHover"
+                            Storyboard.TargetProperty="Opacity"
+                            From="0" To="1" Duration="0:0:0.1" />
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonFill"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF262B3A" To="#FF2D3242" Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="MouseLeave" SourceName="ButtonRegion">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation
+                            Storyboard.TargetName="ButtonHover"
+                            Storyboard.TargetProperty="Opacity"
+                            From="1" To="0" Duration="0:0:0.1" />
+                        <ColorAnimation
+                            Storyboard.TargetName="ButtonFill"
+                            Storyboard.TargetProperty="Color"
+                            From="#FF2D3242" To="#FF262B3A" Duration="0:0:0.1" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Grid.Triggers>
+
+        <Rectangle HorizontalAlignment="Stretch" Height="50" VerticalAlignment="Center">
+            <Rectangle.Fill>
+                <SolidColorBrush x:Name="ButtonFill" Color="#FF262B3A" />
+            </Rectangle.Fill>
+        </Rectangle>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="23*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Source="{Binding ImageSource}" Grid.Column="0" Margin="0,20,0,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+            <Label
+                x:Name="ButtonLabel"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Foreground="Ivory"
+                FontSize="18"
+                FontWeight="Normal"
+                FontStyle="Normal"
+                FontStretch="Normal"
+                VerticalAlignment="Center"
+                Height="32" Grid.Column="1" HorizontalAlignment="Left">
+
+                <Label.Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Setter Property="Content" Value="{Binding Title}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Title.Length, FallbackValue=0, TargetNullValue=0}" Value="0">
+                                <Setter Property="Content" Value="TITLE"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+        </Grid>
+
+        <Rectangle x:Name="ButtonHover" Opacity="0" HorizontalAlignment="Stretch" Height="3" VerticalAlignment="Bottom" Fill="#FF616161"/>
+
+        <Rectangle x:Name="ButtonRegion" Panel.ZIndex="1" Fill="#00000000" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31606.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimKit.UI", "UI\AnimKit.UI.csproj", "{1B3EDD6A-FC79-4834-8A96-A84AF79EEFCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimKit.Core", "Core\AnimKit.Core.csproj", "{6017EA51-1940-4E35-AE64-8F1D8C50E0A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimKit.CLI", "CLI\AnimKit.CLI.csproj", "{3A8B5D03-7381-40FC-A3CD-57E0011CC108}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B3EDD6A-FC79-4834-8A96-A84AF79EEFCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3EDD6A-FC79-4834-8A96-A84AF79EEFCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3EDD6A-FC79-4834-8A96-A84AF79EEFCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3EDD6A-FC79-4834-8A96-A84AF79EEFCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6017EA51-1940-4E35-AE64-8F1D8C50E0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6017EA51-1940-4E35-AE64-8F1D8C50E0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6017EA51-1940-4E35-AE64-8F1D8C50E0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6017EA51-1940-4E35-AE64-8F1D8C50E0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8B5D03-7381-40FC-A3CD-57E0011CC108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8B5D03-7381-40FC-A3CD-57E0011CC108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8B5D03-7381-40FC-A3CD-57E0011CC108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8B5D03-7381-40FC-A3CD-57E0011CC108}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E9FFE0C-6EC6-4B8A-AE03-F22CAD11356A}
+	EndGlobalSection
+EndGlobal

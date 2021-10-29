@@ -1,0 +1,133 @@
+﻿<Window x:Class="AnimKit.UI.AssetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AnimKit.UI"
+        mc:Ignorable="d"
+        Title="AnimKit by Cfx.re"
+        Height="500"
+        Width="800"
+        Background="#FF161923"
+        Icon="Assets/favicon.png"
+        MinWidth="800"
+        MinHeight="500"
+        HorizontalContentAlignment="Center"
+        VerticalContentAlignment="Center"
+        AllowDrop="True"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <local:LoadingPanel
+            x:Name="LoadingOverlay"
+            Grid.RowSpan="3"
+            Panel.ZIndex="10"
+            Visibility="Hidden" />
+
+        <Grid Grid.Row="0" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="230"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle
+                x:Name="BackdropRect"
+                Panel.ZIndex="-1"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Loaded="BackdropRect_Loaded">
+                <Rectangle.Fill>
+                    <ImageBrush
+                        x:Name="BackdropImage"
+                        Opacity="0.02"
+                        Viewport="0,0,300,300"
+                        TileMode="Tile"
+                        ImageSource="Assets/backdrop.png"
+                        Stretch="Fill"
+                        ViewboxUnits="RelativeToBoundingBox"
+                        ViewportUnits="Absolute"/>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <local:EditableTitle
+                x:Name="AssetEditableTitle"
+                Margin="16,0,0,0"
+                VerticalAlignment="Center"
+                MouseDown="AssetEditableTitle_MouseDown" />
+
+            <StackPanel
+                Grid.Column="1"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                <local:IconButton
+                    x:Name="ExportAssetButton"
+                    Blocked="False"
+                    Margin="0,10,10,10"
+                    ImageSource="Assets/export.png"
+                    Click="ExportAssetButton_Click"
+                    HorizontalAlignment="Right" />
+
+                <local:IconButton
+                    x:Name="SaveAssetButton"
+                    Blocked="False"
+                    Margin="0,10,10,10"
+                    ImageSource="Assets/save.png"
+                    Click="SaveAssetButton_Click" 
+                    HorizontalAlignment="Right" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle
+                HorizontalAlignment="Stretch"
+                Height="50"
+                Stroke="Black"
+                VerticalAlignment="Center"
+                Fill="#FF1B1E27"
+                Grid.ColumnSpan="3" />
+
+            <local:BarButton
+                Grid.Column="0"
+                ImageSource="Assets/dictionary.png"
+                Title="DICTIONARY"
+                MouseDown="AssetMenuDictionaryRegion_MouseDown"/>
+
+            <local:BarButton
+                Grid.Column="1"
+                ImageSource="Assets/animations.png"
+                Title="ANIMATIONS"
+                MouseDown="AssetMenuAnimationsRegion_MouseDown"/>
+
+            <local:BarButton
+                Grid.Column="2"
+                ImageSource="Assets/clips.png"
+                Title="CLIPS"
+                MouseDown="AssetMenuClipsRegion_MouseDown"/>
+
+            <Rectangle
+                x:Name="AssetMenuSelector"
+                Opacity="0"
+                HorizontalAlignment="Stretch"
+                Height="3"
+                VerticalAlignment="Bottom"
+                Grid.Column="1"
+                Fill="#FFF40552" />
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="10">
+            <Frame x:Name="AssetMenuFrame" NavigationUIVisibility="Hidden" />
+        </Grid>
+    </Grid>
+</Window>
