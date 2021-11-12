@@ -8,6 +8,7 @@
     <ApplicationIcon>Assets\icon.ico</ApplicationIcon>
     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
     <UseWindowsForms>True</UseWindowsForms>
+    <RepositoryUrl>https://github.com/CitizenFX/AnimKit</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>

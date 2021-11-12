@@ -10,7 +10,7 @@ namespace AnimKit.UI
 {
     internal static class Updater
     {
-        public static Version CurrentVersion { get; } = new(1, 0, 0);
+        public static Version CurrentVersion { get; } = new(1, 0, 1);
 
         public static Version ActualVersion => Utils.ActualVersions.UI;
 
