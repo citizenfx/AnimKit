@@ -6,7 +6,7 @@ Set of projects for creating and editing GTA V animations.
 See [latest release](https://github.com/CitizenFX/AnimKit/releases/latest).
 
 ## How to use
-Please see tutorial on the [Cfx.re forum](https://forum.cfx.re/t/4771053).
+Please see tutorial on the [Cfx.re forum](https://forum.cfx.re/t/4778131).
 
 ## Projects
 **Core**
