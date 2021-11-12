@@ -10,7 +10,7 @@ namespace AnimKit.UI
 {
     internal static class Updater
     {
-        public static Version CurrentVersion { get; } = new(1, 0, 1);
+        public static Version CurrentVersion { get; } = new(1, 0, 2);
 
         public static Version ActualVersion => Utils.ActualVersions.UI;
 
@@ -67,7 +67,7 @@ namespace AnimKit.UI
 
         public static async Task<bool> DownloadLatest(Action<long, long>? loadProgress)
         {
-            string downloadURL = string.Format($"{Constants.RepoURL}/releases/download/%s/AnimKit.UI.zip", ActualVersion.ToString());
+            string downloadURL = $"{Constants.RepoURL}/releases/download/v{ActualVersion}/AnimKit.UI.zip";
             return await Utils.DownloadFile(downloadURL, UpdaterArchive, loadProgress);
         }
 

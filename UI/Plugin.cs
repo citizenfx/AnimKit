@@ -56,7 +56,7 @@ namespace AnimKit.UI
                 return false;
             }
 
-            string downloadURL = string.Format($"{Constants.RepoURL}/releases/download/%s/AnimKit.Plugin.zip", ActualVersion.ToString());
+            string downloadURL = $"{Constants.RepoURL}/releases/download/v{ActualVersion}/AnimKit.Plugin.zip";
             return await Utils.DownloadFile(downloadURL, PluginArchive, loadProgress);
         }
 
