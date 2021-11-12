@@ -6,7 +6,7 @@ Set of projects for creating and editing GTA V animations.
 See [latest release](https://github.com/CitizenFX/AnimKit/releases/latest).
 
 ## How to use
-Please see tutorial on the [Cfx.re forum](https://forum.cfx.re).
+Please see tutorial on the [Cfx.re forum](https://forum.cfx.re/t/4771053).
 
 ## Projects
 **Core**
@@ -30,13 +30,13 @@ Please see tutorial on the [Cfx.re forum](https://forum.cfx.re).
 * Quick actions raw->open and open->raw conversion.
 
 ## Requirements
-.NET Framework 4.7.2 or newer for using `CLI` and `Core`.
-.NET 6 or newer for building AnimKit.UI.
+- NET Framework 4.7.2 or newer for using `CLI` and `Core`.
+- .NET 6 or newer for building AnimKit.UI.
 
 ## Credits
-dexyfex for [CodeWalker](https://github.com/dexyfex/CodeWalker).
-Alexander Blade and MIXAZZZ for [OPEN FORMATS I/O](http://dev-c.com/gtaiv/ofio/) project.
-OpenIV team for [openFormats](https://openiv.com) and [GIMS Evo](https://github.com/3Doomer/GIMS-Evo).
+- dexyfex for [CodeWalker](https://github.com/dexyfex/CodeWalker).
+- Alexander Blade and MIXAZZZ for [OPEN FORMATS I/O](http://dev-c.com/gtaiv/ofio/) project.
+- OpenIV team for [openFormats](https://openiv.com) and [GIMS Evo](https://github.com/3Doomer/GIMS-Evo).
 
 ## License
 AnimKit is licensed under the AGPL-3.0 license.
