@@ -158,7 +158,7 @@ namespace AnimKit.UI
 
                 if (!success)
                 {
-                    _ = MessageBox.Show("Failed to unpack update!", Constants.BrandingName, MessageBoxButton.OK, MessageBoxImage.Error);
+                    _ = MessageBox.Show("Failed to unpack update! Try to run AnimKit with administrator privileges.", Constants.BrandingName, MessageBoxButton.OK, MessageBoxImage.Error);
                     return false;
                 }
             }

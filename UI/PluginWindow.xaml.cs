@@ -150,7 +150,7 @@ namespace AnimKit.UI
 
                 if (!isUnpacked)
                 {
-                    _ = MessageBox.Show("Failed to unpack downloaded plugin!",
+                    _ = MessageBox.Show("Failed to unpack downloaded plugin! Try to run AnimKit with administrator privileges.",
                         Constants.BrandingName, MessageBoxButton.OK, MessageBoxImage.Warning);
 
                     Close();
