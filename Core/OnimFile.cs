@@ -2,6 +2,7 @@
 using CodeWalker.GameFiles;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -142,7 +143,7 @@ namespace AnimKit.Core
 	Flags FLAG_0 FLAG_4 FLAG_5 FLAG_6 FLAG_7 FLAG_8
 	Frames {crAnim.Frames}
 	SequenceFrameLimit {crAnim.SequenceFrameLimit}
-	Duration {crAnim.Frames / 30.0}
+	Duration {(crAnim.Frames / 30.0).ToString(CultureInfo.InvariantCulture)}
 	_f10 285410817
 	ExtraFlags
 	Sequences {string.Join(" ", seqs.Select(f => f.ToString()))}
@@ -241,13 +242,13 @@ namespace AnimKit.Core
                             {
                                 var q = seq.Sequences[i].EvaluateQuaternionType7(0);
 
-                                return $"{prefix}				{q[index]}\r\n";
+                                return $"{prefix}				{q[index].ToString(CultureInfo.InvariantCulture)}\r\n";
                             }
 
                             StringBuilder db = new StringBuilder();
                             for (int f = 0; f < seq.NumFrames; f++)
                             {
-                                db.AppendLine($"{prefix}				{seq.Sequences[i].EvaluateQuaternionType7(f)[index]}");
+                                db.AppendLine($"{prefix}				{seq.Sequences[i].EvaluateQuaternionType7(f)[index].ToString(CultureInfo.InvariantCulture)}");
                             }
 
                             return db.ToString();
@@ -256,17 +257,17 @@ namespace AnimKit.Core
                         switch (chan)
                         {
                             case AnimChannelStaticFloat sf:
-                                return $"{prefix}				{sf.Value}\r\n";
+                                return $"{prefix}				{sf.Value.ToString(CultureInfo.InvariantCulture)}\r\n";
                             case AnimChannelStaticVector3 v3:
-                                return $"{prefix}				{v3.Value[0]} {v3.Value[1]} {v3.Value[2]}\r\n";
+                                return $"{prefix}				{v3.Value[0].ToString(CultureInfo.InvariantCulture)} {v3.Value[1].ToString(CultureInfo.InvariantCulture)} {v3.Value[2].ToString(CultureInfo.InvariantCulture)}\r\n";
                             case AnimChannelStaticQuaternion q3:
-                                return $"{prefix}				{q3.Value[0]} {q3.Value[1]} {q3.Value[2]} {q3.Value[3]}\r\n";
+                                return $"{prefix}				{q3.Value[0].ToString(CultureInfo.InvariantCulture)} {q3.Value[1].ToString(CultureInfo.InvariantCulture)} {q3.Value[2].ToString(CultureInfo.InvariantCulture)} {q3.Value[3].ToString(CultureInfo.InvariantCulture)}\r\n";
                             default:
                                 {
                                     StringBuilder db = new StringBuilder();
                                     for (int f = 0; f < seq.NumFrames; f++)
                                     {
-                                        db.AppendLine($"{prefix}				{chan.EvaluateFloat(f)}");
+                                        db.AppendLine($"{prefix}				{chan.EvaluateFloat(f).ToString(CultureInfo.InvariantCulture)}");
                                     }
 
                                     return db.ToString();
