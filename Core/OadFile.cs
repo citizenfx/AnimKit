@@ -598,7 +598,7 @@ namespace AnimKit.Core
                 };
 
                 anim.Unknown_10h = hasRootMotion ? (byte)16 : (byte)0;
-                anim.Unknown_1Ch = 0; // ???
+                anim.Unknown_1Ch = JenkHash.GenHash(onim.Name.ToLowerInvariant()); //  Unique hash required by game for each anim
 
                 anim.AssignSequenceBoneIds();
 
