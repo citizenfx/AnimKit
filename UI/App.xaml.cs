@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Globalization;
+using System.Threading;
+using System.Windows;
 
 namespace AnimKit.UI
 {
@@ -9,6 +11,8 @@ namespace AnimKit.UI
     {
         private void App_Startup(object sender, StartupEventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
             // If we're running "new" file, act like an updater.
             if (Updater.EnsureUpdater())
             {
