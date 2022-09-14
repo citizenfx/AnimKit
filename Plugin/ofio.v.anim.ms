@@ -662,32 +662,32 @@ struct ofio_iv_anim (
 					format " Static" to:fOutput
 				format "\n\x09\x09\x09{\n" to:fOutput
 				local value
+				local prev_rot
+
 				for value in seq.values do
 				(
-					local fixedR
-
-					-- PORT-GTAV: this hack fixes unknown few-frames corruptions caused by weird quaternion reversing
+					-- PORT-GTAV: "flickering bug" fix
 					if block_type == 2 then
 					(
-						local fixQuat = Quat value.x value.y value.z value.w
-						local fixEuler = quatToEuler fixQuat order:2
-						fixedR = eulerToQuat fixEuler order:2
-
-						-- PORT-GTAV: why 3ds max randonly reverse some quaterions?
-					  if (fixedR.x >= 0.0 and fixedR.y >= 0.0 and fixedR.z < 0.0 and fixedR.w < 0.0) then
+						if (prev_rot != undefined) then
 						(
-							fixedR.x = -fixedR.x
-							fixedR.y = -fixedR.y
-							fixedR.z = -fixedR.z
-							fixedR.w = -fixedR.w
+							if ((value.w * prev_rot.w + value.x * prev_rot.x +value.y * prev_rot.y + value.z * prev_rot.z) < 0) then
+							(
+								value.x = -value.x
+								value.y = -value.y
+								value.z = -value.z
+								value.w = -value.w
+							)
 						)
+
+						prev_rot = value
 					)
 
 					case block_type of
 					(
 						0: format "\x09\x09\x09\x09%\n" value to:fOutput
 						1: format "\x09\x09\x09\x09% % %\n" value.x value.y value.z to:fOutput
-						2: format "\x09\x09\x09\x09% % % %\n" fixedR.x fixedR.y fixedR.z fixedR.w to:fOutput
+						2: format "\x09\x09\x09\x09% % % %\n" value.x value.y value.z value.w to:fOutput
 					)
 				)
 				format "\x09\x09\x09}\n" to:fOutput
